@@ -1,0 +1,67 @@
+@font-face {
+    font-family: LiShu;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../font/SimLi.ttf");
+}
+.image_container{
+    width: 1000px;
+    height: 630px;
+    font-family: LiShu;
+    background-image: url('../image/background1.png');
+    background-size: cover;
+    position: relative;
+}
+.text {
+    position:absolute;
+    top:40px;
+    left:30px;
+    color: black;
+    font-size: 40px;
+    width: 900px;
+    border-bottom: 1px solid #cadbe8;
+}
+.text p{
+    margin: 18px;
+}
+h1{
+    font-weight: normal;
+}
+.title {
+    position:absolute;
+    top:160px;
+    left:50px;
+    width: 900px;
+    color: #b85f29;
+    font-size: 24px;
+}
+.content {
+    position:absolute;
+    text-align:justify;
+    top:220px;
+    left:50px;
+    width: 900px;
+    color: #2b4e76;
+    font-size: 20px;
+}
+.footer {
+    position:absolute;
+    top: 510px;
+    left: 600px;
+    text-align: center;
+}
+.time {
+    display: inline-block;
+}
+.time p{
+    margin: 5px 10px 5px 0px;
+    font-size: 28px;
+}
+.code{
+    display: inline-block;
+    vertical-align: top;
+}
+img {
+    width: 100px;
+    height: 100px;
+}

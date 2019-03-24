@@ -1,0 +1,44 @@
+{
+  "name": "stickergenerator",
+  "version": "1.0.0",
+  "description": "generate sticker",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.3.1",
+    "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-bootstrap-date-picker": "^5.1.0",
+    "react-datepicker": "^2.2.0",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.8.5",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wq1224/StickerGenerator.git"
+  },
+  "author": "Wang Qiong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wq1224/StickerGenerator/issues"
+  },
+  "homepage": "https://github.com/wq1224/StickerGenerator#readme"
+}

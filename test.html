@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="content" style="width:1000px;height:400px;border:1px solid blue;background-image: url('image/background.png');background-size: cover">
+        <span>Hello World!</span>
+        <br>
+        <span><h2>Are you hear me?</h2></span>
+        <img  style="width:100px;height:100px;" src='image/qrcode.png' />
+    </div>
+    <button id="btnSave">save</button>
+<script>
+$(function(){
+    $('#btnSave').click(function(event) {
+        html2canvas($('#content'),{
+            onrendered: function(canvas) {
+                document.body.appendChild(canvas);
+                convertCanvasToImage(canvas);
+            }
+        })
+
+    });
+
+    function convertCanvasToImage(canvas) {
+        var image = new Image();
+        image.src = canvas.toDataURL("image/png");
+        
+        document.body.appendChild(image);
+        return image;
+    }
+
+})
+</script>
+</body>
+</html>

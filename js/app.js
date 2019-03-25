@@ -6,25 +6,54 @@ import "react-datepicker/dist/react-datepicker.css";
 import { data } from "./data.js";
 import { calendar } from "./date.js"
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            currentData: 0,
+            currentDate: new Date()
+        };
+    }
+
+    handleClick() {
+        debugger;
+    }
+    handleTimeChange(date) {
+        this.setState({
+            currentDate: date
+        });
+    }
+    handleContentChange(event) {
+        this.setState({
+            currentData: event.target.value
+        })
+    }
 
     render() {
+        const { currentData, currentDate } = this.state;
         return (
-            <div>
+            <div>      
                 <div className="config_container">
-                    <DatePicker/>
-                    <Form.Control as="select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Form.Control>
-                </div>
-                <Button>test</Button>
-                <Show title="问：生肖龙2019己亥年运势"
-                    content="答：龙在2019年凡事要非常小心，可能会有小人的出现破财，或是对自己的工作有阻碍，这一年出现的创业机会可能只是水中捞月，在这新的一年里，一定要步步为营，为下一年作好万全的准备。"
-                    time_text="己亥年丙寅月己卯日"
-                    time_number="2019年2月11日"/>
+                    <Form>
+                        <Form.Group>
+                            <Form.Label>选择时间: </Form.Label>
+                            <DatePicker selected={currentDate} onChange={ this.handleTimeChange.bind(this) }/>    
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>选择内容: </Form.Label>
+                            <Form.Control as="select" defaultValue={currentData} onChange={ this.handleContentChange.bind(this) } >
+                                {data.map((value, index) => (
+                                    <option key={index} value={index}> {index} {value.title}</option>
+                                ))}
+                            </Form.Control>
+                        </Form.Group>
+                    </Form>
+                </div>               
+                <Show title={data[currentData].title}
+                    content={data[currentData].content}
+                    time_text={calendar.toTextDate(currentDate)}
+                    time_number={calendar.toNumberDate(currentDate)}/>
+
+                <Button onClick={this.handleClick.bind(this)}>生成小贴士图片</Button>
             </div>
         )
     }

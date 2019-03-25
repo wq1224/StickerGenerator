@@ -518,5 +518,14 @@ export const calendar = {
         var cD      =   calObj.getUTCDate();
    
         return calendar.solar2lunar(cY,cM,cD);
+    },
+
+    toTextDate: function(date){
+        const lunar = calendar.solar2lunar(date.getFullYear(), date.getMonth()+1, date.getDate());
+        return lunar.gzYear + "年" + lunar.gzMonth + "月" + lunar.gzDay + "日";
+    },
+
+    toNumberDate: function(date){
+        return date.getFullYear() + "年" + (date.getMonth()+1) + "月" + date.getDate() + "日";
     }
 };

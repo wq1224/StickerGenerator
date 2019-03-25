@@ -14,7 +14,7 @@
 }
 .text {
     position:absolute;
-    top:40px;
+    top:38px;
     left:30px;
     color: black;
     font-size: 40px;
@@ -29,20 +29,32 @@ h1{
 }
 .title {
     position:absolute;
-    top:160px;
+    top:158px;
     left:50px;
     width: 900px;
-    color: #b85f29;
-    font-size: 24px;
+    color: #b85f29;    
 }
 .content {
     position:absolute;
     text-align:justify;
-    top:220px;
     left:50px;
     width: 900px;
-    color: #2b4e76;
-    font-size: 20px;
+    color: #2b4e76; 
+}
+.up{
+    top:220px;
+}
+.down{
+    top:250px;
+}
+.large_size {
+    font-size: 40px;
+}
+.middle_size {
+    font-size: 36px;
+}
+.small_size {
+    font-size: 32px;
 }
 .footer {
     position:absolute;

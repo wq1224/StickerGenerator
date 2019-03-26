@@ -1,8 +1,11 @@
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-    entry: './js/index.js', // 入口文件路径
-    output: {
-        path: '/',
-        filename: 'main.js'
+    entry: './js/index.js', // 入口文件
+    output: { // 指定输出选项
+        path: path.resolve(__dirname, 'build/'), // 输出路径
+        filename: 'bundle.js' // 指定输出文件的名称
     },
     devServer: {
         host: '0.0.0.0',
@@ -35,5 +38,11 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html', //指定模板路径
+            filename: 'main.html', //指定文件名
+        })
+    ]
 }

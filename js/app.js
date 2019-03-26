@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { data } from "./data.js";
 import { calendar } from "./date.js"
 import "../css/app.css"
-var htmlToImage = require('html-to-image');
+var htmlToImage = require('dom-to-image');
 var download = require("downloadjs");
 class App extends React.Component {
     constructor() {
@@ -21,10 +21,12 @@ class App extends React.Component {
     }
 
     handleClick() {
-        debugger;
         const element = document.getElementsByClassName("image_container")[0];
         htmlToImage.toPng(element).then(function (dataUrl) {
-            download(dataUrl, 'my-node.png');
+            var img = new Image();
+            img.src = dataUrl;
+            img.style = "height:630px; width:1000px";
+            document.body.appendChild(img);
         });
     }
     handleTimeChange(date) {

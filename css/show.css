@@ -3,6 +3,13 @@
     font-style: normal;
     font-weight: normal;
     src: url("../font/SimLi.ttf");
+    /* src: url("../font/SimLi.eot");
+    src:
+        url('../font/SimLi.eot?#font-spider') format('embedded-opentype'),
+        url('../font/SimLi.woff') format('woff'),
+        url('../font/SimLi.ttf') format('truetype'),
+        url('../font/SimLi.svg') format('svg'); */
+
 }
 .image_container{
     width: 1000px;

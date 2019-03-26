@@ -3,33 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>React Hello World</title>
-    <style src="bootstrap/dist/css/bootstrap.css"></style>
 </head>
 <body>
 <div id="app"></div>
-<button id="btnSave">save</button>
-<script src="main.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-<script>
-    $(function(){
-        $('#btnSave').click(function(event) {
-            html2canvas($('#app'),{
-                onrendered: function(canvas) {
-                    document.body.appendChild(canvas);
-                    convertCanvasToImage(canvas);
-                }
-            })    
-        });   
-        function convertCanvasToImage(canvas) {
-            var image = new Image();
-            image.src = canvas.toDataURL("image/png");
-            
-            document.body.appendChild(image);
-            return image;
-        }
-    
-    })
-    </script>
 </body>
 </html>

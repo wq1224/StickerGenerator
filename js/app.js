@@ -11,9 +11,12 @@ var download = require("downloadjs");
 class App extends React.Component {
     constructor() {
         super();
+        const date = new Date();
+        const data = this.getSuggestData(date);
         this.state = {
-            currentData: 0,
-            currentDate: new Date()
+            currentData: data,
+            currentDate: date,
+            suggestData: data
         };
     }
 
@@ -25,8 +28,10 @@ class App extends React.Component {
         });
     }
     handleTimeChange(date) {
+        const suggestData = this.getSuggestData(date)
         this.setState({
-            currentDate: date
+            currentDate: date,
+            suggestData: suggestData
         });
     }
     handleContentChange(event) {
@@ -34,9 +39,18 @@ class App extends React.Component {
             currentData: event.target.value
         })
     }
+    getSuggestData(date){
+        const baseDay = new Date(2019,2,26);
+        const baseData = 38;
+        const diff = Math.abs(date.getTime() - baseDay.getTime());
+        let distance = parseInt(diff / (1000 * 60 * 60 * 24));
+        distance = (parseInt(distance / 7)) * 5 + (distance % 7);
+        const total = baseData + distance ;
+        return total % data.length;
+    }
 
     render() {
-        const { currentData, currentDate } = this.state;
+        const { currentData, currentDate, suggestData } = this.state;
         return (
             <div>      
                 <div className="config_container">
@@ -47,9 +61,9 @@ class App extends React.Component {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>选择内容: </Form.Label>
-                            <Form.Control as="select" defaultValue={currentData} onChange={ this.handleContentChange.bind(this) } >
+                            <Form.Control as="select" defaultValue={suggestData} onChange={ this.handleContentChange.bind(this) } >
                                 {data.map((value, index) => (
-                                    <option key={index} value={index}> {index} {value.title}</option>
+                                    <option key={index} value={index}> {suggestData == index? '建议: ':''} {index} {value.title}</option>
                                 ))}
                             </Form.Control>
                         </Form.Group>

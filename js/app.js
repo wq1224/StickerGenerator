@@ -5,6 +5,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { data } from "./data.js";
 import { calendar } from "./date.js"
+import "../css/app.css"
+var htmlToImage = require('html-to-image');
+var download = require("downloadjs");
 class App extends React.Component {
     constructor() {
         super();
@@ -16,6 +19,10 @@ class App extends React.Component {
 
     handleClick() {
         debugger;
+        const element = document.getElementsByClassName("image_container")[0];
+        htmlToImage.toPng(element).then(function (dataUrl) {
+            download(dataUrl, 'my-node.png');
+        });
     }
     handleTimeChange(date) {
         this.setState({
@@ -52,8 +59,9 @@ class App extends React.Component {
                     content={data[currentData].content}
                     time_text={calendar.toTextDate(currentDate)}
                     time_number={calendar.toNumberDate(currentDate)}/>
-
-                <Button onClick={this.handleClick.bind(this)}>生成小贴士图片</Button>
+                <div className="okBtn">
+                    <Button onClick={this.handleClick.bind(this)}>生成小贴士图片</Button>
+                </div> 
             </div>
         )
     }

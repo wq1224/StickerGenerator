@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>React Hello World</title>
+    <style src="bootstrap/dist/css/bootstrap.css"></style>
 </head>
 <body>
 <div id="app"></div>
@@ -18,10 +19,8 @@
                     document.body.appendChild(canvas);
                     convertCanvasToImage(canvas);
                 }
-            })
-    
-        });
-    
+            })    
+        });   
         function convertCanvasToImage(canvas) {
             var image = new Image();
             image.src = canvas.toDataURL("image/png");

@@ -1,5 +1,6 @@
 import React from 'react';
 require ('../css/show.css');
+import qrcode from '../image/qrcode.png';
 function Show(props) {
     const { title, content, time_text,time_number } = props;
     const length = title.length + content.length;
@@ -34,7 +35,7 @@ function Show(props) {
                     <p>{time_number}</p>
                 </div>
                 <div className="code">
-                    <img src="../image/qrcode.png"/>
+                    <img src={qrcode}/>
                 </div>
             </div>
         </div>

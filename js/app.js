@@ -8,6 +8,7 @@ import { calendar } from "./date.js"
 import "../css/app.css"
 var htmlToImage = require('dom-to-image');
 var download = require("downloadjs");
+var html2canvas = require('html2canvas');
 class App extends React.Component {
     constructor() {
         super();
@@ -22,12 +23,18 @@ class App extends React.Component {
 
     handleClick() {
         const element = document.getElementsByClassName("image_container")[0];
-        htmlToImage.toPng(element).then(function (dataUrl) {
-            var img = new Image();
-            img.src = dataUrl;
-            img.style = "height:630px; width:1000px";
-            document.body.appendChild(img);
+        html2canvas(element).then(canvas => {
+            var image = new Image();
+            image.src = canvas.toDataURL("image/png");
+            image.style = "height:630px; width:1000px";
+            document.body.appendChild(image);
         });
+        // htmlToImage.toPng(element).then(function (dataUrl) {
+        //     var img = new Image();
+        //     img.src = dataUrl;
+        //     img.style = "height:630px; width:1000px";
+        //     document.body.appendChild(img);
+        // });
     }
     handleTimeChange(date) {
         const suggestData = this.getSuggestData(date)

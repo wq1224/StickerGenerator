@@ -8,3 +8,6 @@ cnpm i --save react
 cnpm i --save react react-dom
 cnpm install webpack --save-dev
 cnpm install babel-loader babel-core babel-preset-react babel-preset-latest --save
+
+
+cnpm run font-spider *.html --debug

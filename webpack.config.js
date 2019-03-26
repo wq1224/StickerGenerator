@@ -31,7 +31,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-                test: [/\.gif$/, /\.jpe?g$/, /\.png$/,/\.ttf$/],
+                test: [/\.gif$/, /\.jpe?g$/, /\.png$/,/\.ttf$/,/\.eot$/,/\.svg$/,/\.woff$/],
                 loader: 'url-loader',
                 options: {
                   limit: 10000, //1w字节以下大小的图片会自动转成base64

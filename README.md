@@ -8,9 +8,13 @@
 
 ## 使用方法
 > npm install
+
 > npm start
+
 访问 http://localhost:3333/main.html。 或者
+
 > npm run build
+
 打包出资源放入服务器中。
 
 ## react webpack配置参考
@@ -28,14 +32,16 @@
 
 ## 字库压缩
 使用font-spider工具。事先将所有需要用到的字符写入testfont.html里，并引入字体库，然后用font-spider解析该出需要的字，进行压缩
+
 > npm run font-spider *.html --debug
+
 run完以后原字体文件就被替换成了压缩文件
 
 ## 小贴士和日期的匹配
 取2019.3.25作为初始值，这天取第39条小贴士(下标为38)，比较选择的时间和初始值的距离，也就是天数。把小贴士列表想象成循环列表，初始值（第39条）加上距离对列表长度取模即可。
 针对每周双休不发，只有工作日需要，对于距离的计算要先除以7再乘5。
 代码如下：
-、、、
+```
     getSuggestData(date){
         const baseDay = new Date(2019,2,25);
         const baseData = 38;
@@ -45,5 +51,5 @@ run完以后原字体文件就被替换成了压缩文件
         const total = baseData + distance ;
         return total % data.length;
     }
-、、、
+```
 

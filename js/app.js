@@ -6,8 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { data } from "./data.js";
 import { calendar } from "./date.js"
 import "../css/app.css"
-var htmlToImage = require('dom-to-image');
-var download = require("downloadjs");
+//var htmlToImage = require('dom-to-image');
+//var download = require("downloadjs");
 var html2canvas = require('html2canvas');
 class App extends React.Component {
     constructor() {
@@ -40,7 +40,8 @@ class App extends React.Component {
         const suggestData = this.getSuggestData(date)
         this.setState({
             currentDate: date,
-            suggestData: suggestData
+            suggestData: suggestData,
+            currentData: suggestData
         });
     }
     handleContentChange(event) {
@@ -49,7 +50,7 @@ class App extends React.Component {
         })
     }
     getSuggestData(date){
-        const baseDay = new Date(2019,2,26);
+        const baseDay = new Date(2019,2,25);
         const baseData = 38;
         const diff = Math.abs(date.getTime() - baseDay.getTime());
         let distance = parseInt(diff / (1000 * 60 * 60 * 24));
@@ -65,12 +66,12 @@ class App extends React.Component {
                 <div className="config_container">
                     <Form>
                         <Form.Group>
-                            <Form.Label>选择时间: </Form.Label>
+                            <Form.Label>选择时间: </Form.Label><br/>
                             <DatePicker selected={currentDate} onChange={ this.handleTimeChange.bind(this) }/>    
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>选择内容: </Form.Label>
-                            <Form.Control as="select" defaultValue={suggestData} onChange={ this.handleContentChange.bind(this) } >
+                            <Form.Control as="select" defaultValue={suggestData} value={currentData} onChange={ this.handleContentChange.bind(this) } >
                                 {data.map((value, index) => (
                                     <option key={index} value={index}> {suggestData == index? '建议: ':''} {index} {value.title}</option>
                                 ))}

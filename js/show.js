@@ -6,9 +6,9 @@ function Show(props) {
     const length = title.length + content.length;
     let class_name = "large"
     let content_pos = "up"
-    if (length >= 200){
+    if (length >= 180){
         class_name = "small_size"
-    }else if (length < 200 && length >= 130){
+    }else if (length < 180 && length >= 130){
         class_name = "middle_size"
     }else{
         class_name = "large_size"

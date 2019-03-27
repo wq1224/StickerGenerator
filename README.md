@@ -38,13 +38,13 @@
 run完以后原字体文件就被替换成了压缩文件
 
 ## 小贴士和日期的匹配
-取2019.3.25作为初始值，这天取第39条小贴士(下标为38)，比较选择的时间和初始值的距离，也就是天数。把小贴士列表想象成循环列表，初始值（第39条）加上距离对列表长度取模即可。
+取2019.3.25作为初始值，这天取第38条小贴士(下标为37)，比较选择的时间和初始值的距离，也就是天数。把小贴士列表想象成循环列表，初始值（第39条）加上距离对列表长度取模即可。
 针对每周双休不发，只有工作日需要，对于距离的计算要先除以7再乘5。
 代码如下：
 ```js
     getSuggestData(date){
         const baseDay = new Date(2019,2,25);
-        const baseData = 38;
+        const baseData = 37;
         const diff = Math.abs(date.getTime() - baseDay.getTime());
         let distance = parseInt(diff / (1000 * 60 * 60 * 24));
         distance = (parseInt(distance / 7)) * 5 + (distance % 7);

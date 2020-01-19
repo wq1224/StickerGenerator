@@ -50,8 +50,8 @@ class App extends React.Component {
         })
     }
     getSuggestData(date){
-        const baseDay = new Date(2019,2,25);
-        const baseData = 37;
+        const baseDay = new Date(2020,0,13);
+        const baseData = 70;
         const diff = Math.abs(date.getTime() - baseDay.getTime());
         let distance = parseInt(diff / (1000 * 60 * 60 * 24));
         distance = (parseInt(distance / 7)) * 5 + (distance % 7);

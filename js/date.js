@@ -436,7 +436,13 @@ export const calendar = {
         
         //天干地支处理
         var sm      =   m-1;
-        var gzY     =   calendar.toGanZhiYear(year);
+        //立春前使用上一年的农历年
+        const springDay = calendar.getTerm(y,3);
+        var tempYear = year;
+        if ((year === y) && ((m === 1) || (m === 2 && d < springDay))) {
+          tempYear = year - 1;
+        }
+        var gzY     =   calendar.toGanZhiYear(tempYear);
         
         //月柱 1900年1月小寒以前为 丙子月(60进制12)
         var firstNode   = calendar.getTerm(year,(m*2-1));//返回当月「节」为几日开始
